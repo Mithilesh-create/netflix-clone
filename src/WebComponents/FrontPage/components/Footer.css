@@ -1,0 +1,45 @@
+.footcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100%;
+    background-color: black;
+  }
+  .areaone{
+    margin-bottom: 10px;
+  }
+  .areatwo{
+    margin-bottom: 20px;
+  }
+  .areathree{
+    margin-bottom: 20px;
+  }
+  
+  .footitems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 60%;
+    width: 75%;
+    line-height: 200%;
+    color: #808080;
+  }
+  .linker {
+    text-decoration-color: #808080;
+    cursor: pointer;
+    color: #808080;
+
+  }
+  .linker:hover {
+    text-decoration: underline;
+  }
+  .areatwo {
+    display: flex;
+    justify-content: space-between;
+  }
+  .areafour{
+    font-size: 14px;
+  }
+  

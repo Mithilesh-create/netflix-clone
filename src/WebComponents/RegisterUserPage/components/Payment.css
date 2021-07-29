@@ -1,0 +1,110 @@
+.centerElementPayment {
+  width: 50%;
+  height: 70%;
+  max-width: 570px;
+  max-height: 500px;
+  margin-bottom: 100px;
+  color: hsl(0, 0%, 50%);
+  user-select: none;
+}
+.iconLock {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circleAroundLock {
+  width: 12.5%;
+  height: 90%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 5px solid hsl(0, 100%, 50%);
+  color: hsl(0, 100%, 50%);
+  font-size: 28px;
+}
+.textMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  height: 60%;
+  /* background-color: blue; */
+}
+.securelock {
+  width: 100%;
+  height: 5%;
+  /* background-color: violet; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.paymentGateWayButton {
+  width: 100%;
+  height: 20%;
+  /* background-color: cyan; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paymentStep strong {
+  color: hsl(0, 0%, 30%);
+}
+.paymentHead {
+  font-size: 34px;
+}
+.paymentHead strong {
+  color: hsl(0, 0%, 30%);
+}
+.paymentMessage {
+  font-size: 18px;
+}
+.paymentMessage strong {
+  color: hsl(0, 0%, 30%);
+}
+.goldenLock {
+  color: gold;
+}
+.paymentBtn {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid hsla(0, 0%, 40%);
+  color: hsla(0, 0%, 40%);
+  cursor: pointer;
+  text-decoration: none;
+}
+.btnRight {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-left: 1%;
+}
+.btnLeft {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+.btnLeft i {
+  margin-right: 10px;
+}
+.paymentLogos {
+  height: 50%;
+  width: 50%;
+}

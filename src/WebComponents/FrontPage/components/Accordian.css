@@ -1,0 +1,27 @@
+.accordion {
+  width: 600px;
+  height: 70px;
+  background-color: #282C35;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  font-size: 20px;
+  padding: 5px 30px;
+  color: white;
+  margin-bottom: 3px;
+  user-select: none;
+}
+.panel{
+  width: 660px;
+  background-color: #282C35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  margin-bottom: 7px;
+}
+.answers{
+  width: 95%;
+  color: #f5f5f5;
+}

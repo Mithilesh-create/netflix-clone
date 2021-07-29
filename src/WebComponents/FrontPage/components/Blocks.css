@@ -1,0 +1,45 @@
+.contained {
+  width: 100%;
+  height: 60vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 10px solid #525355;
+}
+.centerdivarea {
+  width: 90%;
+  height: 55%;
+  display: flex;
+  justify-content: space-between;
+}
+.textarea {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.imagearea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+.title {
+  font-size: 48px;
+  font-weight: bold;
+}
+.paragraph {
+  font-size: 24px;
+}
+#DisplayAreaOne {
+  background: url("../images/sacred.gif") no-repeat;
+  background-size: 290px 180px;
+  background-position: 50% 50%;
+}
+#DisplayAreaTwo {
+  background: url("../images/sacred.gif") no-repeat;
+  background-size: 250px 150px;
+  background-position: 50% 20%;
+}

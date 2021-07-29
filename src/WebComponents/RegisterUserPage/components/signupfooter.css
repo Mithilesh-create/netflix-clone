@@ -1,0 +1,16 @@
+.SignUPFooter {
+  background-color: hsla(0, 0%, 95%);
+  color: hsla(0, 0%, 50%);
+  max-height: 400px;
+  align-self: center;
+}
+.signupitems {
+  width: 90%;
+  max-width: 900px;
+  max-height: 300px;
+}
+.signDROP {
+  background-color: white;
+  color: hsla(0, 0%, 50%);
+  border: 1px solid hsla(0, 0%, 50%);
+}

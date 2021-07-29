@@ -1,0 +1,50 @@
+.mainarea {
+  width: 100%;
+  height: 14vh;
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+}
+.logohere {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.navigatehere {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+.logoactive {
+  margin-left: 8%;
+}
+.correctarea {
+  margin-right: 10%;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.buttonBeauty {
+  width: 75px;
+  height: 31px;
+  background-color: red;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+}
+.linke {
+  text-decoration: none;
+  color: white;
+}
+.drop {
+  width: 80px;
+  height: 30px;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+  outline: none;
+}

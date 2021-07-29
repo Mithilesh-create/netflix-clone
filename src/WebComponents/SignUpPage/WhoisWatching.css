@@ -1,0 +1,149 @@
+.whoiswatching {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+.navarea {
+  width: 95%;
+  height: 10%;
+  margin-top: 2px;
+}
+.whoisuser {
+  width: 80%;
+  max-width: 900px;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.boxes {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 170px;
+  text-decoration: none;
+  color: white;
+}
+.boxesAdded {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 170px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  top: -22px;
+}
+.editProfile {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 2px solid black;
+  cursor: pointer;
+  opacity: 0;
+}
+.toProfileEdit {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+.editProfile:hover {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.AccessArea {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ProfileHere:hover {
+  box-shadow: 1px 1px 3px 2px whitesmoke;
+}
+.ProfileHere {
+  border: 2px solid white;
+  border-radius: 2px;
+}
+.adduser {
+  height: 120px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+}
+.adduser:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+}
+.manageProfiles {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ManageProfileBtn {
+  font-size: 20px;
+  width: 250px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid gray;
+  color: gray;
+  text-decoration: none;
+  outline: none;
+  text-transform: uppercase;
+  background: transparent;
+  transition: 200ms;
+}
+.ManageProfileBtn:hover {
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+}
+.containTwoElems {
+  position: relative;
+  width: 100%;
+  /* background-color: beige; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chevronhere {
+  position: absolute;
+  z-index: 1;
+  width: 80px;
+  height: 40px;
+  color: white;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 2px solid black;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.chevronhere:hover {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.5);
+}

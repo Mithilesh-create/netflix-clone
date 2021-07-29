@@ -1,0 +1,66 @@
+.MylistArea {
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #100c08;
+  border-top: 5px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.showContentsHere {
+  width: 100%;
+  height: 100px;
+  color: white;
+  font-size: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageArea {
+  width: 100%;
+  height: auto;
+  border-top: 5px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #100c08;
+  color: white;
+}
+.listContainingMovies {
+  width: 150px;
+  height: 250px;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.DeleteFromList {
+  z-index: 3;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+  align-items: center;
+  background-color: rgba(255, 0, 0, 0.7);
+  bottom: 2px;
+  opacity: 0;
+  user-select: none;
+}
+.DeleteFromList:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease-in-out 0s;
+  transition: opacity 0.25s ease-in-out 0s;
+}
+.secondparthere {
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.MyListMovie {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,194 @@
+.mainAreaTwo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: hsl(0, 0%, 30%);
+}
+.mainCenterAreaTwo {
+  width: 95%;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.headhereTwo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.fourthMainDiv {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check {
+  font-size: 18px;
+  color: hsl(0, 100%, 50%);
+  margin-right: 4px;
+}
+.firstMainDiv {
+  height: 25vh;
+  width: 100%;
+}
+.thirdMainDiv {
+  width: 100%;
+}
+.secondMainDiv {
+  width: 100%;
+}
+.wrotearea {
+  width: 90%;
+}
+.wrotearea small a {
+  text-decoration: none;
+}
+.wrotearea small a:hover {
+  text-decoration: underline;
+}
+.subscriptionBoxes {
+  height: 25vh;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.maincontainerBoxes {
+  width: 65%;
+  height: 100%;
+  max-height:200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.maincontainerBoxes div {
+  width: 20.5%;
+  max-width: 130px;
+  height: 80%;
+  max-height:135px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.maincontainerBoxes div strong {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.maincontainerBoxes div i {
+  height: 10%;
+  width: 100%;
+  font-size: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MobilePlanDiv {
+  background-color: hsl(0, 100%, 70%);
+  color: transparent;
+}
+.BasicPlanDiv {
+  background-color: hsl(0, 100%, 70%);
+  color: transparent;
+}
+.StandardPlanDiv {
+  background-color: hsl(0, 100%, 70%);
+  color: transparent;
+}
+.PremiumPlanDiv {
+  background-color: hsl(0, 100%, 70%);
+  color: transparent;
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+.MobilePlanDivACTIVE {
+  background-color: hsl(0, 100%, 40%);
+  color: hsl(0, 100%, 40%);
+}
+.MobilePlanACTIVE {
+  color: hsl(0, 100%, 70%);
+}
+/*  */
+.arrowACTIVE {
+  color: hsl(0, 100%, 40%);
+}
+/*  */
+.BasicPlanDivACTIVE {
+  background-color: hsl(0, 100%, 40%);
+  color: hsl(0, 100%, 40%);
+}
+.BasicPlanACTIVE {
+  color: hsl(0, 100%, 70%);
+}
+/*  */
+.StandardPlanDivACTIVE {
+  background-color: hsl(0, 100%, 40%);
+  color: hsl(0, 100%, 40%);
+}
+.StandardPlanACTIVE {
+  color: hsl(0, 100%, 70%);
+}
+/*  */
+.PremiumPlanDivACTIVE {
+  background-color: hsl(0, 100%, 40%);
+  color: hsl(0, 100%, 40%);
+}
+.PremiumPlanACTIVE {
+  color: hsl(0, 100%, 70%);
+}
+/*  */
+.tableshere {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tableshere td {
+  width: 150px;
+  height: 60px;
+}
+.tableDime {
+  width: 100%;
+  text-align: center;
+  color: hsl(0, 0%, 70%);
+}
+.tableDime th {
+  font-weight: normal;
+  color: hsl(0, 0%, 30%);
+  border-bottom: 1px solid #ddd;
+}
+.pics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pics i {
+  font-size: 24px;
+}
+
+.fa-tablet {
+  transform: rotate(-90deg);
+  z-index: -1;
+}
+.tableshereTwo {
+  border-bottom: 2px solid black;
+  /* background-color: aqua; */
+}

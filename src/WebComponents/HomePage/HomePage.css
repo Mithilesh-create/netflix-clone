@@ -1,0 +1,12 @@
+.containedRows {
+  height: auto;
+  width: 100%;
+  background-color: black;
+}
+.containhead{
+  position: absolute;
+  z-index: -1;
+  height: 20vh;
+  width: 100%;
+  background-color: black;
+}

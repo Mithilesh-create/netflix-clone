@@ -11,7 +11,7 @@ const {
 //
 router.post("/registerDB", registerController);
 //
-router.post("/login", loginController);
+router.post("/loginDB", loginController);
 // 
 router.post("/mailValidate", emailController);
 

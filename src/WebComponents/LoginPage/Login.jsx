@@ -21,7 +21,7 @@ function Login() {
             <div className="mainsigninarea">
               <div className="signINarea">
                 <h1>Sign In</h1>
-                <form method="post" action="/databasesignIN">
+                <form method="post" action="/databasesignIN" id="formSubmisson">
                   <input
                     spellCheck="false"
                     type="email"
@@ -37,6 +37,7 @@ function Login() {
                     spellCheck="false"
                     type="password"
                     placeholder="Password"
+                    autoComplete="off"
                     required
                     value={pass}
                     onChange={(e) => {
@@ -46,10 +47,7 @@ function Login() {
                   <button
                     className="btnsignin"
                     type="submit"
-                    id="formSubmisson"
                     onClick={() => {
-                      console.log(emailVal);
-                      console.log(pass);
                       sendLoginServer(emailVal, pass);
                     }}
                   >

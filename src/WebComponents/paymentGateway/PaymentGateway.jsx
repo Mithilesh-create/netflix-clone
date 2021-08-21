@@ -15,6 +15,7 @@ function PaymentGateway() {
   const [lastName, setlastName] = useState("");
   const [checkBox, setcheckBox] = useState(false);
   const [showWarning, setshowWarning] = useState(false);
+  const [show, setshow] = useState(false);
   const PriceDataInfo = useSelector((state) => state.PriceData);
   const emailValue = useSelector((state) => state.EmailData);
   const passValue = useSelector((state) => state.PassData);
@@ -55,6 +56,16 @@ function PaymentGateway() {
   };
   return (
     <>
+      {show ? (
+        <div className="whiteScreen">
+          <div className="loader"></div>
+          <h1 className="heading">Please Wait...</h1>
+          <span className="bodypara">
+            You will be redirected after confirmation...
+          </span>
+        </div>
+      ) : null}
+
       <Navigation />
       <div className="positioncontainerPayment">
         <form
@@ -168,6 +179,7 @@ function PaymentGateway() {
             type="submit"
             className="startMemberShipBTN"
             onClick={(e) => {
+              setshow(true);
               SendData(e);
             }}
           >

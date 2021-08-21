@@ -68,7 +68,6 @@ export const sendDataServer = async (
         .catch((err) => {
           console.log(err);
         });
-      console.log(paymentObject.stripeToken);
     });
   }
 };

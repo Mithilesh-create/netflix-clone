@@ -1,8 +1,9 @@
 import React from "react";
-// import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { profileLogosApi } from "./profileLogosApi";
+import { imgData } from "../../HomePage/actions/index";
 function LogoSector({ profileLogoTitle }) {
-  // const [profileIcon, setprofileIcon] = useState(profileLogosApi);
+  const dispatch = useDispatch();
   return (
     <>
       <div className="containMainHead">
@@ -16,6 +17,10 @@ function LogoSector({ profileLogoTitle }) {
                 className="itemshereImages"
                 width={130}
                 height={130}
+                tabIndex="-1"
+                onClick={() => {
+                  dispatch(imgData(elm));
+                }}
               />
             );
           })}

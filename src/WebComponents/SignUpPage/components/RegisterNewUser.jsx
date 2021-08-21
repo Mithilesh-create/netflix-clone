@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./RegisterNewUser.css";
 import ProfileLogos from "./ProfileLogos";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { imgData } from "../../HomePage/actions/index";
+import { useCallback } from "react";
+import axioslocal from "axios";
+import { useHistory } from "react-router-dom";
+
 function RegisterNewUser() {
+  const history = useHistory();
+  const callCookieAuth = useCallback(() => {
+    const callCookie = async () => {
+      try {
+        const res = await axioslocal.get("/cookieVerification", {
+          withCredentials: true,
+        });
+        if (!res.status === 200) {
+          const error = new Error(res.error);
+          throw error;
+        }
+      } catch (error) {
+        console.log(error);
+        history.push("/login");
+      }
+    };
+    callCookie();
+  }, [history]);
+  useEffect(() => {
+    callCookieAuth();
+  }, [callCookieAuth]);
+  const dispatch = useDispatch();
   const [show, setshow] = useState(false);
+  const elm = {
+    id: 2,
+    profileUrl: "https://bit.ly/2XuEH0V",
+  };
   return (
     <>
       <div className="AddNewProfileArea">
@@ -34,7 +66,14 @@ function RegisterNewUser() {
                 required
                 spellcheck="false"
               />
-              <button>Kids?</button>
+              <button
+                onClick={() => {
+                  dispatch(imgData(elm));
+                }}
+                type="button"
+              >
+                Kids?
+              </button>
             </div>
             <div className="furtherBtns">
               <button type="submit">Continue</button>

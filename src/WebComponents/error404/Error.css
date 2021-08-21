@@ -1,0 +1,14 @@
+.errorMsg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: hsla(0, 0%, 80%);
+}
+.errorMsg h1 {
+  font-size: 60px;
+  color: white;
+}
+.errorMsg span {
+  font-size: 30px;
+}

@@ -121,7 +121,6 @@
 .containTwoElems {
   position: relative;
   width: 100%;
-  /* background-color: beige; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,4 +145,74 @@
 .chevronhere:hover {
   border: 2px solid white;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.logoutScreen {
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.logContainer {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logBtnArea {
+  height: 40%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logBtnAreaOne {
+  height: 40%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: hsla(0, 0%, 15%);
+  border-radius: 5px;
+  font-size: 20px;
+  color: hsla(0, 0%, 50%);
+  text-decoration: none;
+}
+.logBtnAreaTwo {
+  height: 40%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: hsla(0, 0%, 15%);
+  border-radius: 5px;
+  font-size: 20px;
+  color: hsla(0, 0%, 50%);
+  text-decoration: none;
+}
+.logBtnAreaOne:hover {
+  border: 2px solid white;
+  background-color: white;
+  color: #000;
+}
+.logBtnAreaTwo:hover {
+  border: 2px solid white;
+  background-color: white;
+  color: #000;
 }

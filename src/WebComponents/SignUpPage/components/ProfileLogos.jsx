@@ -1,12 +1,9 @@
 import "./profileLogos.css";
 import logo from "../images/dot.png";
-// import { useState } from "react";
 import LogoSector from "./LogoSector";
 import { profileLogosApi } from "./profileLogosApi";
 
 function ProfileLogos() {
-  // const [profileIcon, setprofileIcon] = useState(profileLogosApi);
-
   return (
     <>
       <div className="LogoContainer">
@@ -18,6 +15,10 @@ function ProfileLogos() {
             return <LogoSector profileLogoTitle={elm.profileUrl} />;
           })}
         </div>
+      </div>
+      <div className="nextContainer">
+        <span>Confirm</span>
+        <i className="fas fa-arrow-circle-right"></i>
       </div>
     </>
   );

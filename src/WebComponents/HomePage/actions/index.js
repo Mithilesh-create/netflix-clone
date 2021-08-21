@@ -81,7 +81,22 @@ export const passData = (data) => {
     },
   };
 };
-
+export const imgData = (data) => {
+  return {
+    type: "img_data",
+    payload: {
+      data: data,
+    },
+  };
+};
+export const imgDataNum = (data) => {
+  return {
+    type: "img_datanum",
+    payload: {
+      data: data,
+    },
+  };
+};
 
 export const PriceDataSend = (data) => {
   return {

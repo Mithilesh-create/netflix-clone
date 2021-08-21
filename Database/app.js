@@ -1,14 +1,15 @@
 require("dotenv").config();
 require("./connection/dbconn");
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const router = require("./router/router");
 const app = express();
-const port = process.env.SERVER_PORT;
-const path = require("path");
-const cors = require("cors");
 app.use(router);
+app.use(cookieParser());
+const cors = require("cors");
 app.use(cors());
 app.use(express.json());
+const port = process.env.SERVER_PORT;
 
 app.get("/", (req, res) => {
   res.send("hello world");

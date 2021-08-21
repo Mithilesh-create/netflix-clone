@@ -84,6 +84,10 @@ exports.loginController = async (req, res) => {
         User_login.hash_password
       );
       token = await User_login.generateAuthToken();
+      res.cookie("jwtoken", token, {
+        expires: new Date(Date.now() + 25892000000),
+        httpOnly: true,
+      });
       if (!isMatch) {
         res.status(400).json({ error: "Invalid Credentials" });
       } else {
@@ -118,4 +122,31 @@ exports.emailController = async (req, res) => {
 
 exports.emailActive = (req, res) => {
   res.json({ message: "Email is active" });
+};
+exports.cookieController = async (req, res) => {
+  res.send(req.rootUser);
+};
+
+exports.cookieLogout = async (req, res) => {
+  try {
+    req.rootUser.user_token = req.rootUser.user_token.filter((elm) => {
+      return elm.token != req.token;
+    });
+    res.clearCookie("jwtoken");
+    await req.rootUser.save();
+    res.status(200).send("Success");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+//
+exports.cookieLogoutAll = async (req, res) => {
+  try {
+    req.rootUser.user_token = [];
+    res.clearCookie("jwtoken");
+    await req.rootUser.save();
+    res.status(200).send("Success");
+  } catch (error) {
+    res.status(500).send(error);
+  }
 };

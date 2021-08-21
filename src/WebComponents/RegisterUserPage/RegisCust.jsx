@@ -11,6 +11,7 @@ function RegisCust() {
   const dispatch = useDispatch();
   const [pass, setpass] = useState("");
   const [visible, setvisible] = useState(false);
+  const [show, setshow] = useState(false);
   const emailValue = useSelector((state) => state.EmailData);
   const dispatchReq = () => {
     dispatch(passData(""));
@@ -35,6 +36,15 @@ function RegisCust() {
   };
   return (
     <>
+      {show ? (
+        <div className="whiteScreen">
+          <div className="loader"></div>
+          <h1 className="heading">Please Wait A Second...</h1>
+          <span className="bodypara">
+            You will be redirected after confirmation...
+          </span>
+        </div>
+      ) : null}
       <Navigation />
       <div className="positioncontainer">
         {/*  */}
@@ -93,6 +103,7 @@ function RegisCust() {
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault();
+                  setshow(true);
                   dispatchReq();
                 }}
               >

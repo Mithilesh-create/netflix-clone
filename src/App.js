@@ -1,5 +1,4 @@
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
 import FrontPAGE from "./WebComponents/FrontPage/FrontPAGE.jsx";
 import Login from "./WebComponents/LoginPage/Login";
 import HomePage from "./WebComponents/HomePage/HomePage";
@@ -18,6 +17,9 @@ import StepThree from "./WebComponents/RegisterUserPage/components/StepThree";
 import Payment from "./WebComponents/RegisterUserPage/components/Payment";
 import PaymentGateway from "./WebComponents/paymentGateway/PaymentGateway.jsx";
 import ChangePlans from "./WebComponents/RegisterUserPage/components/ChangePlans";
+import Logout from "./WebComponents/Logout/Logout";
+import LogoutAll from "./WebComponents/Logout/LogoutAll";
+import Error from "./WebComponents/error404/Error.jsx";
 function App() {
   return (
     <>
@@ -40,6 +42,9 @@ function App() {
         <Route exact path="/RegisCust/payment" component={Payment} />
         <Route exact path="/paymentGateway" component={PaymentGateway} />
         <Route exact path="/changeplans" component={ChangePlans} />
+        <Route exact path="/logout" component={Logout} />
+        <Route exact path="/logoutall" component={LogoutAll} />
+        <Route component={Error} />
       </Switch>
     </>
   );

@@ -5,24 +5,72 @@ import { UserNameApi } from "./usersasApi";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { DataFromProfile, DeleteDataProfile } from "../HomePage/actions/index";
+import { useCallback } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import {
+  DataFromProfile,
+  DeleteDataProfile,
+  imgDataNum,
+} from "../HomePage/actions/index";
 function WhoisWatching() {
   const dispatch = useDispatch();
-  // const [profiles, setprofiles] = useState(UserNameApi);
   const [profileADD, setprofilesADD] = useState(false);
-
+  const [show, setshow] = useState(false);
+  const history = useHistory();
+  const callCookieAuth = useCallback(() => {
+    const callCookie = async () => {
+      try {
+        const res = await axios.get("/cookieVerification", {
+          withCredentials: true,
+        });
+        if (!res.status === 200) {
+          const error = new Error(res.error);
+          throw error;
+        }
+      } catch (error) {
+        console.log(error);
+        history.push("/login");
+      }
+    };
+    callCookie();
+  }, [history]);
+  useEffect(() => {
+    callCookieAuth();
+  }, [callCookieAuth]);
   useEffect(() => {
     const profileADDorREM = () => {
       if (UserNameApi.length > 4) {
         setprofilesADD(false);
+        console.log(UserNameApi.length);
       } else {
         setprofilesADD(true);
       }
     };
     profileADDorREM();
   }, []);
+  //
+  //
+  //
   return (
     <>
+      {show ? (
+        <div className="logoutScreen">
+          <div className="logContainer">
+            <h1 className="headMsg">
+              Do you want to Logout from all Devices ?
+            </h1>
+            <div className="logBtnArea">
+              <Link to="/logout" className="logBtnAreaOne" id="logBtnOne">
+                Logout
+              </Link>
+              <Link to="/logoutall" className="logBtnAreaTwo" id="logBtnTwo">
+                Logout from all devices
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className="whoiswatching">
         <div className="navarea">
           <img src={logo} alt="logohere" width={150} height={60} />
@@ -59,6 +107,7 @@ function WhoisWatching() {
                   className="editProfile"
                   onClick={() => {
                     dispatch(DataFromProfile(elm));
+                    dispatch(imgDataNum(elm.id));
                   }}
                 >
                   <Link to="updateProfile" className="toProfileEdit">
@@ -78,7 +127,14 @@ function WhoisWatching() {
           ) : null}
         </div>
         <div className="manageProfiles">
-          <Link className="ManageProfileBtn">LOG OUT</Link>
+          <Link
+            className="ManageProfileBtn"
+            onClick={() => {
+              setshow(true);
+            }}
+          >
+            LOG OUT
+          </Link>
         </div>
       </div>
     </>

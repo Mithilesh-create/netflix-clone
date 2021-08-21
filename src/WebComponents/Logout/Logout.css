@@ -1,0 +1,13 @@
+.logmessage {
+  border-bottom: none;
+}
+.centralLogOut {
+  width: 50%;
+  height: 50%;
+  background-color: hsl(0, 0%, 0%, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid hsl(0, 0%, 100%, 0.5);
+}

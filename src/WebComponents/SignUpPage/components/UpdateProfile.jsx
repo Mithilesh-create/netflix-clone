@@ -5,12 +5,16 @@ import ProfileLogos from "./ProfileLogos";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DeleteDataProfile } from "../../HomePage/actions/index";
-import { imgData } from "../../HomePage/actions/index";
+import { imgData, OpenProfTab } from "../../HomePage/actions/index";
 import { useCallback } from "react";
 import axioslocal from "axios";
 import { useHistory } from "react-router-dom";
+import { updateProfiledata } from "./updateProfiledata";
 function UpdateProfile() {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const show = useSelector((state) => state.OpenAndCloseProfile);
+  const [profileName, setprofileName] = useState("");
   const callCookieAuth = useCallback(() => {
     const callCookie = async () => {
       try {
@@ -31,13 +35,17 @@ function UpdateProfile() {
   useEffect(() => {
     callCookieAuth();
   }, [callCookieAuth]);
-  const profileUpdateData = useSelector((state) => state.ProfileLogData);
-  const [show, setshow] = useState(false);
-  const dispatch = useDispatch();
+  useEffect(() => {
+    const valueNull = null;
+    dispatch(imgData(valueNull));
+  }, [dispatch]);
   const elm = {
-    id: 2,
+    id: 1,
     profileUrl: "https://bit.ly/2XuEH0V",
   };
+  const profileUpdateData = useSelector((state) => state.ProfileLogData);
+  const ImgUrl = useSelector((state) => state.ImgData);
+
   return (
     <>
       <div className="AddNewProfileArea">
@@ -47,25 +55,32 @@ function UpdateProfile() {
             <p>Update Profile for your customization on Netflix</p>
           </div>
 
-          <form action="" method="post" className="userAddPlay">
+          <form method="POST" className="userAddPlay" id="profileSubmisson">
             <div className="userAddArea">
               <img
-                src={profileUpdateData.profileUrl}
+                src={
+                  ImgUrl
+                    ? ImgUrl.profileUrl
+                    : profileUpdateData.profile_user_url
+                }
                 alt="profileIconHere"
                 width={130}
                 height={130}
                 className="profileArea"
                 onClick={() => {
-                  setshow(!show);
+                  dispatch(OpenProfTab(!show));
                 }}
               />
               <input
                 type="text"
-                name=""
-                id=""
-                placeholder={profileUpdateData.Name}
+                placeholder={
+                  profileUpdateData.assoc_name
+                }
                 required
                 spellcheck="false"
+                onChange={(e) => {
+                  setprofileName(e.target.value);
+                }}
               />
               <button
                 onClick={() => {
@@ -77,7 +92,18 @@ function UpdateProfile() {
               </button>
             </div>
             <div className="furtherBtns">
-              <button type="submit">Update</button>
+              <button
+                type="submit"
+                onClick={() => {
+                  updateProfiledata(
+                    profileName,
+                    ImgUrl.profileUrl,
+                    profileUpdateData._id
+                  );
+                }}
+              >
+                Update
+              </button>
               <Link
                 onClick={() => {
                   dispatch(DeleteDataProfile());
@@ -85,7 +111,18 @@ function UpdateProfile() {
                 className="towiw"
                 to="/wiw"
               >
-                <button>Cancel</button>
+                <button
+                  onClick={() => {
+                    const PrevElme = {
+                      profileUrl:
+                        profileUpdateData
+                          .profile_user_url,
+                    };
+                    dispatch(imgData(PrevElme));
+                  }}
+                >
+                  Cancel
+                </button>
               </Link>
             </div>
           </form>

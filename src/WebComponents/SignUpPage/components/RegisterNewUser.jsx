@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import "./RegisterNewUser.css";
 import ProfileLogos from "./ProfileLogos";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { imgData } from "../../HomePage/actions/index";
+import { useDispatch, useSelector } from "react-redux";
+import { imgData, OpenProfTab } from "../../HomePage/actions/index";
 import { useCallback } from "react";
 import axioslocal from "axios";
 import { useHistory } from "react-router-dom";
-
+import { regisUser } from "./registerProfile";
 function RegisterNewUser() {
+  const ImgUrl = useSelector((state) => state.ImgData);
+  const show = useSelector((state) => state.OpenAndCloseProfile);
+  const [profileName, setprofileName] = useState("");
   const history = useHistory();
   const callCookieAuth = useCallback(() => {
     const callCookie = async () => {
@@ -32,11 +35,11 @@ function RegisterNewUser() {
     callCookieAuth();
   }, [callCookieAuth]);
   const dispatch = useDispatch();
-  const [show, setshow] = useState(false);
   const elm = {
-    id: 2,
+    id: 1,
     profileUrl: "https://bit.ly/2XuEH0V",
   };
+
   return (
     <>
       <div className="AddNewProfileArea">
@@ -45,26 +48,35 @@ function RegisterNewUser() {
             <span>Add Profile</span>
             <p>Add a profile for another person watching Netflix</p>
           </div>
-
-          <form action="" method="post" className="userAddPlay">
+          <form
+            method="POST"
+            action="#"
+            id="profileSubmisson"
+            className="userAddPlay"
+          >
             <div className="userAddArea">
               <img
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/64623a33850498.56ba69ac2a6f7.png"
+                src={
+                  ImgUrl
+                    ? ImgUrl.profileUrl
+                    : "https://mir-s3-cdn-cf.behance.net/project_modules/disp/64623a33850498.56ba69ac2a6f7.png"
+                }
                 alt="profileIconHere"
                 width={130}
                 height={130}
                 className="profileArea"
                 onClick={() => {
-                  setshow(!show);
+                  dispatch(OpenProfTab(!show));
                 }}
               />
               <input
                 type="text"
-                name=""
-                id=""
                 placeholder="Profile Name"
                 required
                 spellcheck="false"
+                onChange={(e) => {
+                  setprofileName(e.target.value);
+                }}
               />
               <button
                 onClick={() => {
@@ -76,9 +88,25 @@ function RegisterNewUser() {
               </button>
             </div>
             <div className="furtherBtns">
-              <button type="submit">Continue</button>
+              <button
+                type="submit"
+                onClick={() => {
+                  regisUser(profileName, ImgUrl.profileUrl);
+                  const nullProfile = null;
+                  dispatch(imgData(nullProfile));
+                }}
+              >
+                Continue
+              </button>
               <Link className="towiw" to="/wiw">
-                <button>Cancel</button>
+                <button
+                  onClick={() => {
+                    const nullProfile = null;
+                    dispatch(imgData(nullProfile));
+                  }}
+                >
+                  Cancel
+                </button>
               </Link>
             </div>
           </form>

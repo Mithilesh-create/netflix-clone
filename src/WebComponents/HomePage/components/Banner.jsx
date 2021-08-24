@@ -3,7 +3,6 @@ import "./Banner.css";
 import NavArea from "./NavArea";
 import axios from "./axios";
 import requests from "./Requests";
-// import { Link } from "react-router-dom";
 import { DataFromPoster, DataForMyList } from "../actions/index";
 import { useDispatch } from "react-redux";
 
@@ -53,8 +52,6 @@ function Banner() {
                 setshowCheck(!showCheck);
               }}
             >
-              {/* <i className="fas fa-plus" style={{ fontSize: "18px" }} />
-              My List */}
               {showCheck ? (
                 <i class="fas fa-check" style={{ fontSize: "18px" }} />
               ) : (

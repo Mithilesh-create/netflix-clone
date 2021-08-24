@@ -150,3 +150,64 @@ exports.cookieLogoutAll = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+//
+exports.NewProfileCreate = async (req, res) => {
+  const { assoc_name, profile_user_url } = req.body;
+  if (!assoc_name || !profile_user_url) {
+    return res.status(422).json({ error: "Please fill the fields properly" });
+  }
+  try {
+    const NetflixProfileAdd = await NetflixModel.findOne({
+      _id: req.userID,
+    });
+    if (NetflixProfileAdd) {
+      const NetflixProfileInsert = await NetflixProfileAdd.addProfiles(
+        assoc_name,
+        profile_user_url
+      );
+      await NetflixProfileInsert.save();
+      res.status(201).send("Success");
+    }
+  } catch (error) {
+    return res.json({ error: error.message });
+  }
+};
+//
+exports.ProfileUpdate = async (req, res) => {
+  const { assoc_name, profile_user_url, id } = req.body;
+  if (!assoc_name || !profile_user_url || !id) {
+    return res.status(422).json({ error: "Please fill the fields properly" });
+  }
+  try {
+    const NetflixProfileFind = await NetflixModel.findOneAndUpdate(
+      {
+        _id: req.userID,
+        "user_profiles._id": id,
+      },
+      {
+        $set: {
+          "user_profiles.$.assoc_name": assoc_name,
+          "user_profiles.$.profile_user_url": profile_user_url,
+        },
+      }
+    );
+    res.status(201).send(NetflixProfileFind);
+  } catch (error) {
+    return res.json({ error: error.message });
+  }
+};
+//
+exports.AllProfileData = async (req, res) => {
+  try {
+    const NetflixProfileData = await NetflixModel.findOne({
+      _id: req.userID,
+    });
+    if (NetflixProfileData) {
+      const ArrayProfileData = await NetflixProfileData;
+      res.status(200).send(ArrayProfileData);
+    }
+  } catch (error) {
+    return res.json({ error: error.message });
+  }
+};

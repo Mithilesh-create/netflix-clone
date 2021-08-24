@@ -55,12 +55,12 @@ function NavArea() {
             <div className="HomeProfile">
               <Link to="/wiw" className="toLogOut">
                 <img
-                  src={ProfData.profileUrl}
+                  src={ProfData.profile_user_url}
                   alt="whoiswatching"
                   width={40}
                   height={40}
                 />
-                <span>{ProfData.Name}</span>
+                <span>{ProfData.assoc_name}</span>
               </Link>
             </div>
           </div>

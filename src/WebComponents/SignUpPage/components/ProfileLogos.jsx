@@ -2,8 +2,11 @@ import "./profileLogos.css";
 import logo from "../images/dot.png";
 import LogoSector from "./LogoSector";
 import { profileLogosApi } from "./profileLogosApi";
-
+import {CloseProfTab} from "../../HomePage/actions/index";
+import { useDispatch, useSelector } from "react-redux";
 function ProfileLogos() {
+  const dispatch = useDispatch()
+  const show = useSelector(state => state.OpenAndCloseProfile)
   return (
     <>
       <div className="LogoContainer">
@@ -16,7 +19,9 @@ function ProfileLogos() {
           })}
         </div>
       </div>
-      <div className="nextContainer">
+      <div className="nextContainer" onClick={() =>{
+        dispatch(CloseProfTab(!show))
+      }}>
         <span>Confirm</span>
         <i className="fas fa-arrow-circle-right"></i>
       </div>

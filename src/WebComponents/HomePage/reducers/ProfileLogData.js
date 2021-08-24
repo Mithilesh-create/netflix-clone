@@ -1,7 +1,4 @@
-const initialState = {
-  Name: "Manoj",
-  profileUrl: "https://i.imgur.com/WK2idvp.png",
-};
+const initialState = {};
 const ProfileLogData = (state = initialState, action) => {
   switch (action.type) {
     case "Data_profile":

@@ -56,8 +56,8 @@ export const sendDataServer = async (
           axios
             .post("/registerDB", paymentObject)
             .then((res) => {
-              if (res.data.message === "Successful") {
-                window.location.href = "/RegisterNewUser";
+              if (res.status === 201) {
+                window.location.href = "/login";
               }
             })
             .catch((err) => {

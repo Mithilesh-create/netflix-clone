@@ -59,21 +59,19 @@ const NetflixSchema = new mongoose.Schema({
   ],
   user_profiles: [
     {
-      user_profile_associate: {
-        assoc_name: {
-          type: String,
-          required: true,
-          minlength: 3,
-          maxlength: 20,
-        },
-        profile_user_url: {
-          type: String,
-          required: true,
-        },
-        registration_date: {
-          type: Date,
-          required: true,
-        },
+      assoc_name: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 20,
+      },
+      profile_user_url: {
+        type: String,
+        required: true,
+      },
+      registration_date: {
+        type: Date,
+        default: Date.now(),
       },
     },
   ],
@@ -95,6 +93,22 @@ NetflixSchema.methods.generateAuthToken = async function () {
     return tokenCreated;
   } catch (err) {
     console.log(err.message);
+  }
+};
+//
+NetflixSchema.methods.addProfiles = async function (
+  assoc_name,
+  profile_user_url
+) {
+  try {
+    this.user_profiles = this.user_profiles.concat({
+      assoc_name,
+      profile_user_url,
+    });
+    await this.save();
+    return this.user_profiles;
+  } catch (error) {
+    console.log(error.message);
   }
 };
 //

@@ -12,6 +12,9 @@ const {
   cookieController,
   cookieLogout,
   cookieLogoutAll,
+  NewProfileCreate,
+  ProfileUpdate,
+  AllProfileData,
 } = require("../controllers/funcControllerAction");
 const Authenticate = require("../middleware/authenticate");
 //
@@ -26,5 +29,11 @@ router.get("/cookieVerification", Authenticate, cookieController);
 router.get("/cookieRem", Authenticate, cookieLogout);
 //
 router.get("/cookieRemAll", Authenticate, cookieLogoutAll);
+//
+router.post("/profileReg", Authenticate, NewProfileCreate);
+// 
+router.get("/profileData", Authenticate, AllProfileData);
+//
+router.post("/profileUpdate",Authenticate, ProfileUpdate);
 //
 module.exports = router;

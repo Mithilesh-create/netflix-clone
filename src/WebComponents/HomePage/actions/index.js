@@ -106,3 +106,13 @@ export const PriceDataSend = (data) => {
     },
   };
 };
+export const OpenProfTab = () => {
+  return {
+    type: "Open_prof_tab",
+  };
+};
+export const CloseProfTab = () => {
+  return {
+    type: "Close_prof_tab",
+  };
+};

@@ -8,7 +8,7 @@ import RecentlyAdded from "./NavBarComponents/RecentlyAdded";
 import MyList from "./NavBarComponents/MyList";
 import WhoisWatching from "./WebComponents/SignUpPage/WhoisWatching";
 import RegisterNewUser from "./WebComponents/SignUpPage/components/RegisterNewUser";
-import UpdateProfile from "./WebComponents/SignUpPage/components/UpdateProfile";
+import UpdateProfile from "./WebComponents/SignUpPage/components/UpdateProfile.jsx";
 import ProfileLogos from "./WebComponents/SignUpPage/components/ProfileLogos";
 import RegisCust from "./WebComponents/RegisterUserPage/RegisCust";
 import StepOne from "./WebComponents/RegisterUserPage/components/StepOne";

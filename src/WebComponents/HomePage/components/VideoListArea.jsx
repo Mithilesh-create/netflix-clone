@@ -23,12 +23,12 @@ function VideoListArea({ title, fetchUrl, isLargeRow = false }) {
   //
   const base_url = "https://image.tmdb.org/t/p/original/";
   useEffect(() => {
-    const MovieDataRecive = async () => {
+    const MovieDataReceive = async () => {
       const MovieData = await axios.get(fetchUrl);
       setMovies(MovieData.data.results);
       return MovieData;
     };
-    MovieDataRecive();
+    MovieDataReceive();
   }, [fetchUrl]);
   //
   //

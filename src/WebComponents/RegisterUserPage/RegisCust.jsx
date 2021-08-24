@@ -103,7 +103,11 @@ function RegisCust() {
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault();
-                  setshow(true);
+                  if (visible) {
+                    setshow(false);
+                  } else {
+                    setshow(true);
+                  }
                   dispatchReq();
                 }}
               >

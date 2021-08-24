@@ -1,10 +1,9 @@
 import "./WhoisWatching.css";
 import logo from "./images/dot.png";
 import { Link } from "react-router-dom";
-import { UserNameApi } from "./usersasApi";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -12,12 +11,16 @@ import {
   DataFromProfile,
   DeleteDataProfile,
   imgDataNum,
+  imgData,
 } from "../HomePage/actions/index";
 function WhoisWatching() {
+  const ProfileData = useSelector((state) => state.ProfileLogData);
   const dispatch = useDispatch();
   const [profileADD, setprofilesADD] = useState(false);
   const [show, setshow] = useState(false);
+  const [Profiles, setProfiles] = useState([]);
   const history = useHistory();
+
   const callCookieAuth = useCallback(() => {
     const callCookie = async () => {
       try {
@@ -38,18 +41,44 @@ function WhoisWatching() {
   useEffect(() => {
     callCookieAuth();
   }, [callCookieAuth]);
+  //
+  //
+  //
+  //
+  useEffect(() => {
+    const ProfileDataReceive = async () => {
+      const ProfileDataArr = await axios.get("/profileData");
+      await setProfiles(ProfileDataArr.data.user_profiles);
+      dispatch(DataFromProfile(ProfileDataArr.data.user_profiles[0]));
+      return ProfileDataArr;
+    };
+    ProfileDataReceive();
+  }, [dispatch]);
+  //
+  //
   useEffect(() => {
     const profileADDorREM = () => {
-      if (UserNameApi.length > 4) {
+      if (Profiles.length > 4) {
         setprofilesADD(false);
-        console.log(UserNameApi.length);
       } else {
         setprofilesADD(true);
       }
     };
     profileADDorREM();
-  }, []);
+  }, [Profiles.length]);
   //
+  //
+  const callProfilePush = useCallback(() => {
+    const ProfileDataPush = async () => {
+      if (ProfileData._id === null || ProfileData._id === undefined) {
+        dispatch(DataFromProfile(Profiles[0]));
+      }
+    };
+    ProfileDataPush();
+  }, [dispatch, ProfileData, Profiles]);
+  useEffect(() => {
+    callProfilePush();
+  }, [callProfilePush]);
   //
   //
   return (
@@ -82,7 +111,7 @@ function WhoisWatching() {
           <h1 className="ProfileTitle">Who's watching?</h1>
         </div>
         <div className="whoisuser">
-          {UserNameApi.map((elm) => {
+          {Profiles.map((elm) => {
             return (
               <div className="AccessArea">
                 <Link
@@ -92,22 +121,23 @@ function WhoisWatching() {
                     dispatch(DeleteDataProfile());
                     dispatch(DataFromProfile(elm));
                   }}
-                  key={elm.Name}
+                  key={elm.assoc_name}
                 >
                   <img
-                    src={elm.profileUrl}
+                    src={elm.profile_user_url}
                     alt={elm.id}
                     width={120}
                     height={120}
                     className="ProfileHere"
                   />
-                  <span>{elm.Name}</span>
+                  <span>{elm.assoc_name}</span>
                 </Link>
                 <span
                   className="editProfile"
                   onClick={() => {
                     dispatch(DataFromProfile(elm));
-                    dispatch(imgDataNum(elm.id));
+                    dispatch(imgData(elm.profile_user_url));
+                    dispatch(imgDataNum(elm._id));
                   }}
                 >
                   <Link to="updateProfile" className="toProfileEdit">
@@ -118,7 +148,14 @@ function WhoisWatching() {
             );
           })}
           {profileADD ? (
-            <Link to="/RegisterNewUser" className="boxesAdded">
+            <Link
+              to="/RegisterNewUser"
+              className="boxesAdded"
+              onClick={() => {
+                const nullProfile = null;
+                dispatch(imgData(nullProfile));
+              }}
+            >
               <div className="adduser">
                 <i className="fas fa-plus-circle" />
               </div>

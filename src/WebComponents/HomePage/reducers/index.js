@@ -9,6 +9,7 @@ import PriceData from "./PriceData";
 import PassData from "./PassData";
 import ImgData from "./ImgData";
 import ImgDataNum from "./ImgDataNum";
+import OpenAndCloseProfile from "./OpenCloseProf";
 
 const rootReducer = combineReducers({
   OpenAndCloseModal,
@@ -21,5 +22,6 @@ const rootReducer = combineReducers({
   PassData,
   ImgData,
   ImgDataNum,
+  OpenAndCloseProfile,
 });
 export default rootReducer;

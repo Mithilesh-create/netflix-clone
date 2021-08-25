@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./NewModal.css";
-import sourceFile from "../images/Official Trailer _ Season 1 _ LUCIFER.mp4";
+import sourceFile from "../../FrontPage/images/Official Trailer _ Season 1 _ LUCIFER.mp4";
 import { useDispatch, useSelector } from "react-redux";
 import {
   CloseModal,

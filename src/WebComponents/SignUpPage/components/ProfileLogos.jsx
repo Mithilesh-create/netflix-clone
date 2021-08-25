@@ -1,5 +1,5 @@
 import "./profileLogos.css";
-import logo from "../images/dot.png";
+import logo from "../../FrontPage/images/dot.png";
 import LogoSector from "./LogoSector";
 import { MoneyHeist, Disenchantment, BJ ,LIS} from "./profileHeaderApi";
 import {

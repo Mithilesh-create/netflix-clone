@@ -36,7 +36,7 @@ function Banner() {
         </div>
         <div className="backshadow" />
         <div className="dispareahere">
-          <h1>{movie.name}</h1>
+          <h1>{movie? movie.name : movie.title}</h1>
           <div className="buttonhere">
             <button
               className="btn_grp"

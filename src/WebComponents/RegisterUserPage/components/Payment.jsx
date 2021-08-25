@@ -1,6 +1,6 @@
 import Navigation from "./Navigation";
 import SignUPFooter from "./SignUPFooter";
-import paymentLOGO from "../../HomePage/images/paymentLOGO.png";
+import paymentLOGO from "../../FrontPage/images/paymentLOGO.png";
 import { Link } from "react-router-dom";
 import "./Payment.css";
 function Payment() {

@@ -1,5 +1,5 @@
 import "./WhoisWatching.css";
-import logo from "./images/dot.png";
+import logo from "../FrontPage/images/dot.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";

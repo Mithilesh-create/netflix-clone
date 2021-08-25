@@ -9,7 +9,7 @@ app.use(cookieParser());
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || 5000;
 
 app.get("/", (req, res) => {
   res.send("hello world");

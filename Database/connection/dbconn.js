@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb://localhost:27017/Netflix", {
+  .connect(process.env.DB_CONNECT, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,

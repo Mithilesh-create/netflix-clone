@@ -1,5 +1,5 @@
 import "./NavArea.css";
-import logo from "../images/dot.png";
+import logo from "../../FrontPage/images/dot.png";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";

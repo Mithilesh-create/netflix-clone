@@ -1,7 +1,7 @@
 import SignUPFooter from "../RegisterUserPage/components/SignUPFooter";
 import Navigation from "../RegisterUserPage/components/Navigation";
 import "./PaymentGateway.css";
-import paymentLOGO from "../HomePage/images/paymentLOGO.png";
+import paymentLOGO from "../FrontPage/images/paymentLOGO.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";

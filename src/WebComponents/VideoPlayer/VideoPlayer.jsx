@@ -2,7 +2,7 @@ import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import NetVideo from "../HomePage/images/Official Trailer _ Season 1 _ LUCIFER.mp4";
+import NetVideo from "../FrontPage/images/Official Trailer _ Season 1 _ LUCIFER.mp4";
 import "./VideoPlayer.css";
 import { ClosePlayer } from "../HomePage/actions/index";
 

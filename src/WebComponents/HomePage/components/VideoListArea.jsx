@@ -55,23 +55,50 @@ function VideoListArea({ title, fetchUrl, isLargeRow = false }) {
           </div>
           <div className="moviearea" ref={ref}>
             {Movies.map((movies) => {
-              return (
-                <>
-                  <img
-                    src={`${base_url}${
-                      isLargeRow ? movies.poster_path : movies.backdrop_path
-                    }`}
-                    className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-                    alt={movies.name}
-                    overview={movies.overview}
-                    key={movies.id}
-                    onClick={() => {
-                      dispatch(OpenModal());
-                      dispatch(DataFromPoster(movies));
-                    }}
-                  />
-                </>
-              );
+              if (isLargeRow) {
+                return (
+                  <>
+                    <img
+                      src={`${base_url}${
+                        isLargeRow ? movies.poster_path : movies.backdrop_path
+                      }`}
+                      className={`row_poster ${
+                        isLargeRow && "row_posterLarge"
+                      }`}
+                      overview={movies.overview}
+                      key={movies.id}
+                      alt={movies.id}
+                      onClick={() => {
+                        dispatch(OpenModal());
+                        dispatch(DataFromPoster(movies));
+                      }}
+                    />
+                  </>
+                );
+              } else {
+                return (
+                  (isLargeRow && movies.poster_path) ||
+                  (!isLargeRow && movies.backdrop_path && (
+                    <>
+                      <img
+                        src={`${base_url}${
+                          isLargeRow ? movies.poster_path : movies.backdrop_path
+                        }`}
+                        className={`row_poster ${
+                          isLargeRow && "row_posterLarge"
+                        }`}
+                        overview={movies.overview}
+                        key={movies.id}
+                        alt={movies.id}
+                        onClick={() => {
+                          dispatch(OpenModal());
+                          dispatch(DataFromPoster(movies));
+                        }}
+                      />
+                    </>
+                  ))
+                );
+              }
             })}
           </div>
           <div className="right" onClick={() => scrollToward(200)}>

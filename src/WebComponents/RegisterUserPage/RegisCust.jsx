@@ -7,6 +7,7 @@ import { useState } from "react";
 import { passData } from "../HomePage/actions/index";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useEffect } from "react";
 function RegisCust() {
   const dispatch = useDispatch();
   const [pass, setpass] = useState("");
@@ -14,8 +15,15 @@ function RegisCust() {
   const [show, setshow] = useState(false);
   const emailValue = useSelector((state) => state.EmailData);
   const dispatchReq = () => {
-    dispatch(passData(""));
-    dispatch(passData(pass));
+    if (visible === false) {
+      dispatch(passData(""));
+      dispatch(passData(pass));
+      window.location.href = "/RegisCust/payment";
+    }else{
+      window.location.href = "/RegisCust/";
+    }
+  };
+  useEffect(() => {
     const emailValidate = {
       user_mail: emailValue,
     };
@@ -25,7 +33,6 @@ function RegisCust() {
         console.log("sent email");
         if (res.data.message === "UserAbsent") {
           setvisible(false);
-          window.location.href = "/RegisCust/payment";
         } else {
           setvisible(true);
         }
@@ -33,7 +40,7 @@ function RegisCust() {
       .catch((err) => {
         console.log(err.message);
       });
-  };
+  }, [emailValue]);
   return (
     <>
       {show ? (
@@ -103,11 +110,7 @@ function RegisCust() {
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault();
-                  if (visible) {
-                    setshow(false);
-                  } else {
-                    setshow(true);
-                  }
+                  setshow(!show);
                   dispatchReq();
                 }}
               >

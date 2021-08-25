@@ -4,7 +4,9 @@ import "./RegisterNewUser.css";
 import ProfileLogos from "./ProfileLogos";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DeleteDataProfile } from "../../HomePage/actions/index";
+import {
+  DeleteDataProfile,
+} from "../../HomePage/actions/index";
 import { imgData, OpenProfTab } from "../../HomePage/actions/index";
 import { useCallback } from "react";
 import axioslocal from "axios";
@@ -41,7 +43,7 @@ function UpdateProfile() {
   }, [dispatch]);
   const elm = {
     id: 1,
-    profileUrl: "https://bit.ly/2XuEH0V",
+    profileUrl: "https://i.imgur.com/p19PL8P.png",
   };
   const profileUpdateData = useSelector((state) => state.ProfileLogData);
   const ImgUrl = useSelector((state) => state.ImgData);
@@ -73,9 +75,7 @@ function UpdateProfile() {
               />
               <input
                 type="text"
-                placeholder={
-                  profileUpdateData.assoc_name
-                }
+                placeholder={profileUpdateData.assoc_name}
                 required
                 spellcheck="false"
                 onChange={(e) => {
@@ -114,9 +114,7 @@ function UpdateProfile() {
                 <button
                   onClick={() => {
                     const PrevElme = {
-                      profileUrl:
-                        profileUpdateData
-                          .profile_user_url,
+                      profileUrl: profileUpdateData.profile_user_url,
                     };
                     dispatch(imgData(PrevElme));
                   }}

@@ -37,7 +37,7 @@ function RegisterNewUser() {
   const dispatch = useDispatch();
   const elm = {
     id: 1,
-    profileUrl: "https://bit.ly/2XuEH0V",
+    profileUrl: "https://i.imgur.com/p19PL8P.png",
   };
 
   return (

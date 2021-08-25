@@ -56,20 +56,12 @@ function WhoisWatching() {
   }, [dispatch]);
   //
   //
-  useEffect(() => {
-    const profileADDorREM = () => {
-      if (Profiles.length > 4) {
-        setprofilesADD(false);
-      } else {
-        setprofilesADD(true);
-      }
-    };
-    profileADDorREM();
-  }, [Profiles.length]);
-  //
   //
   const callProfilePush = useCallback(() => {
     const ProfileDataPush = async () => {
+      if(ProfileData===undefined){
+        console.log("yes");
+      }
       if (ProfileData._id === null || ProfileData._id === undefined) {
         dispatch(DataFromProfile(Profiles[0]));
       }
@@ -80,6 +72,16 @@ function WhoisWatching() {
     callProfilePush();
   }, [callProfilePush]);
   //
+  useEffect(() => {
+    const profileADDorREM = () => {
+      if (Profiles.length > 4) {
+        setprofilesADD(false);
+      } else {
+        setprofilesADD(true);
+      }
+    };
+    profileADDorREM();
+  }, [Profiles.length]);
   //
   return (
     <>
